@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./styles.css";
+import "./callApi.css";
 
 export default class CallApi extends Component {
     constructor() {
@@ -23,7 +23,8 @@ export default class CallApi extends Component {
                 let title = info.map( (curr, index) => {
                     return <ul>
                     <li key = {index}>{curr.title}</li>
-                    <li key = {index}><a href = {curr.f2f_url}>{curr.f2f_url}</a></li>
+                    <li key = {index}><a href = {curr.f2f_url}>SEE RECIPE</a></li>
+                    <button>Add To Favorites</button>
                     </ul>
                     
                 })   
@@ -33,16 +34,12 @@ export default class CallApi extends Component {
             }).catch(console.log)
     }
 
-    
-
-
-
     render() {
 
         return (
           <div>
 
-            <input onChange={(e) => this.setState({ ingredient: e.target.value })}/>
+            <input size="35" onChange={(e) => this.setState({ ingredient: e.target.value })}/>
 
             <button onClick ={this.getRecipe}> Get Recipes </button>
             {this.state.recipes}
