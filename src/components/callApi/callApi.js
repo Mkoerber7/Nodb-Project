@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./styles.css";
+import "./callApi.css";
 
 export default class CallApi extends Component {
     constructor() {
@@ -19,33 +19,41 @@ export default class CallApi extends Component {
             .post("/api/getRecipe", { ingredient: this.state.ingredient })
             .then(response => {
                 console.log(response.data);
-                let info = response.data;
-                let title = info.map( (curr, index) => {
-                    return <ul>
-                    <li key = {index}>{curr.title}</li>
-                    <li key = {index}><a href = {curr.f2f_url}>{curr.f2f_url}</a></li>
-                    </ul>
-                    
-                })   
+                   
                 
            return this.setState({recipes: 
-                title });
+                response.data });
             }).catch(console.log)
     }
 
-    
+    addFavorites(current) {
+     console.log(current);
 
-
+     axios
+     .post("/api/addFavorite", {title: current.title, f2f_url: current.f2f_url})
+    }
 
     render() {
+        let title = this.state.recipes.map( (curr, index) => {
+            return <ul key = {index}>
+            <li>{curr.title}</li>
+            <li><a href = {curr.f2f_url}>SEE RECIPE</a></li>
+            <button onClick={() => this.addFavorites(curr)}>Add To Favorites</button>
+            </ul>
+            
+        })
 
         return (
           <div>
+            
 
-            <input onChange={(e) => this.setState({ ingredient: e.target.value })}/>
+            <h2>Please Enter The Ingredients You Are Looking To Use</h2>
+            <h3>Separated By A Comma (example: chicken, rice, etc.)</h3>
+
+            <input size="35" onChange={(e) => this.setState({ ingredient: e.target.value })}/>
 
             <button onClick ={this.getRecipe}> Get Recipes </button>
-            {this.state.recipes}
+            {title}
 
           </div>
         )

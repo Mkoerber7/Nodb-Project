@@ -2,37 +2,35 @@ import React, { Component } from 'react';
 import './App.css';
 // import axios from 'axios';
 import CallApi from "./components/callApi/callApi"
+import Header from "./components/header/header"
+import Favorites from "./components/Favorites/Favorites"
 
 class App extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   // this.state={
-  //   //   recipes: [],
+    this.state = {
+      callApi: true,
+      favorites: false
+    }
 
+    this.showFavorites = this.showFavorites.bind(this);
+   }
 
-  //   // }
-  // }
-  // componentDidMount() {
-  //   axios.get('http://localhost:3210/api/getRecipes').then(response => {
-  //     console.log(response);
-  //   });
-  // }
+   showFavorites() {
+     this.setState({callApi: !this.state.callApi, favorites: !this.state.favorites})
+   }
   
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Recipe Finder</h1>
-        </header>
+        <Header changeView={this.showFavorites}/>
 
         <body>
 
-          <h2>Please Enter The Ingredients You Are Looking For</h2>
-          <h3>Separated By A Comma (example: chicken, rice)</h3>
 
-          <CallApi />
+          {this.state.callApi && <CallApi />}
+          {this.state.favorites && <Favorites />}
         
         </body>
         
