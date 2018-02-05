@@ -18,3 +18,16 @@
     font-size: 100px;
     font-family: 'Lobster', cursive;
 }
+  
+.nav-list-item {
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    display: inline-block;
+  }
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }

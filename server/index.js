@@ -9,12 +9,14 @@ app.use(cors());
 
 const port = 3210;
 
-const { getRecipe } = require(`${__dirname}/controllers/mainCtrl.js`);
+const { getRecipe, addFavorite, saveFavorite } = require(`${__dirname}/controllers/mainCtrl.js`);
 // const { getF2f } = require(`${__dirname}/controllers/mainCtrl.js`);
 //const { getImage } = require(`${__dirname}/controllers/mainCtrl.js`);
 //const { getUrl } = require(`${__dirname}/controllers/mainCtrl.js`); 
 
 app.post("/api/getRecipe", getRecipe);
+app.post("/api/addFavorite", addFavorite);
+app.get("/api/saveFavorite", saveFavorite);
 // app.post("/api/f2f", getF2f);
 //app.post("/api/image", getImage);
 // app.post("/api/url", getUrl);

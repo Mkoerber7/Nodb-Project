@@ -3,20 +3,34 @@ import './App.css';
 // import axios from 'axios';
 import CallApi from "./components/callApi/callApi"
 import Header from "./components/header/header"
+import Favorites from "./components/Favorites/Favorites"
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      callApi: true,
+      favorites: false
+    }
+
+    this.showFavorites = this.showFavorites.bind(this);
+   }
+
+   showFavorites() {
+     this.setState({callApi: !this.state.callApi, favorites: !this.state.favorites})
+   }
   
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header changeView={this.showFavorites}/>
 
         <body>
 
-          <h2>Please Enter The Ingredients You Are Looking To Use</h2>
-          <h3>Separated By A Comma (example: chicken, rice, etc)</h3>
 
-          <CallApi />
+          {this.state.callApi && <CallApi />}
+          {this.state.favorites && <Favorites />}
         
         </body>
         
