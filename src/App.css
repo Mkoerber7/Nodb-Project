@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  color: rgb(139, 101, 3);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.App li {
+  list-style: none;
+}
+
+.App a {
+  color: rgb(116, 21, 21);
+}
+
+.App button {
+  background-color: grey;
+
+}
+
+.App-header {
+  background-color: rgb(116, 21, 21);
+  height: 100px;
+  padding: 20px;
+  color: rgb(139, 101, 3);
+  
+}
+
+.App-title {
+  font-size: 45px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.App-intro {
+  font-size: large;
+}
+h2{
+  display: inline-block;
+}
+
+h3{
+  font-size: 15px;
+}
