@@ -7,8 +7,8 @@ const navItems = ["Home", "Favorites"];
 const Header = ({ changeView }) => (
     <header>
       <div className="image-container">
-        <img class="header-img" src={headerImage} alt="plates of food" />
-        <div class="centered">Recipe Finder</div>
+        <img className="header-img" src={headerImage} alt="plates of food" />
+        <div className="centered">Recipe Finder</div>
       </div>
 
       <div className="top-right">

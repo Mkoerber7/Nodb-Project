@@ -12,9 +12,7 @@ const getRecipe = (req, res, next) => {
 };
 
 const addFavorite = (req,res,next) => {
-    console.log(req.body,"hit");
     saveFav.push(req.body);
-    console.log("savFav from add", saveFav);
 }
 
 const saveFavorite = (req, res, next) => {
@@ -22,19 +20,21 @@ const saveFavorite = (req, res, next) => {
 };
 
 const deleteFavorite = (req, res, next) => {
-    console.log("From delete req", req.body)
     saveFav.splice(req.body, 1);
-    console.log("From delete", saveFav);
     res.json(saveFav);
 }
 
 const updateTitle = (req, res, next) => {
-
+    console.log("update save", saveFav)
+    console.log("update req body", req.body);
+    saveFav.splice(saveFav.length, 1, req.body);
+    res.json(saveFav);
 }
 
 module.exports = {
     getRecipe,
     addFavorite,
     saveFavorite,
-    deleteFavorite
+    deleteFavorite,
+    updateTitle
 }
