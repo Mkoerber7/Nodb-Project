@@ -1,0 +1,17 @@
+.footer-container {
+    position: relative;
+    top: 125px;
+    height: 50px;
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    padding: 10px;
+}
+
+.footer-text {
+    position: relative;
+    display:inline-block;
+    font-size: 25px;
+    margin: 0 auto;
+    color: #820409;
+}

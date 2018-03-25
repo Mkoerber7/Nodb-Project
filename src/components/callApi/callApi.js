@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./callApi.css";
+import Footer from "../Footer/Footer"
 
 export default class CallApi extends Component {
     constructor() {
@@ -46,6 +47,7 @@ export default class CallApi extends Component {
 
             <button onClick ={this.getRecipe}> Get Recipes </button>
             {title}
+            <Footer />
           </div>
         )
     }

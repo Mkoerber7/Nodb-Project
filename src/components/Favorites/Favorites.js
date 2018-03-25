@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Footer from "../Footer/Footer"
+import "./Favorites.css"
 
 
 export default class Favorites extends Component {
@@ -48,7 +50,10 @@ export default class Favorites extends Component {
         });
         return (
             <div>
-             {favoriteRecipes}
+            <div className="fav-container">
+            {favoriteRecipes}
+            </div>
+             <Footer />
             </div>
            
         )
